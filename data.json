@@ -1,0 +1,10 @@
+{
+    "carrot": {
+        "displayName": "Carrot",
+        "description": "this is a carrot"
+    },
+    "radish": {
+        "displayName": "Radish",
+        "description": "this is a radish"
+    }
+}
