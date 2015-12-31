@@ -1,7 +1,7 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var GardenConstants = require('../constants/GardenConstants');
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import GardenConstants from '../constants/GardenConstants';
 
-var TodoActions = {
+export default {
 
   /**
    * @param  {string} displayName
@@ -9,6 +9,18 @@ var TodoActions = {
   create: function(displayName) {
     AppDispatcher.dispatch({
       actionType: GardenConstants.PLANT_CREATE,
+      displayName: displayName
+    });
+  },
+
+  /**
+   * @param  {string} id The ID of the plant
+   * @param  {string} displayName
+   */
+  update: function(id, displayName) {
+    AppDispatcher.dispatch({
+      actionType: GardenConstants.PLANT_UPDATE,
+      id: id,
       displayName: displayName
     });
   },
@@ -45,5 +57,3 @@ var TodoActions = {
   }
 
 };
-
-module.exports = TodoActions;

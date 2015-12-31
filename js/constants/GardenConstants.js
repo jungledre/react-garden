@@ -1,6 +1,6 @@
-var keyMirror = require('keymirror');
+import keyMirror from 'keymirror';
 
-module.exports = keyMirror({
+export default keyMirror({
   PLANT_CREATE: null,
   PLANT_READ: null,
   PLANT_UPDATE: null,

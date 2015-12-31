@@ -1,6 +1,6 @@
 import React from 'react';
 import Garden from './Garden';
-var GardenStore = require('../stores/GardenStore');
+import GardenStore from '../stores/GardenStore';
 
 function getGardenState() {
     return {

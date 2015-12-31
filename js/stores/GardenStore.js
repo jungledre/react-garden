@@ -1,12 +1,12 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import { EventEmitter } from 'events';
+import assign from 'object-assign';
 
-var GardenConstants = require('../constants/GardenConstants');
+import GardenConstants from '../constants/GardenConstants';
 
-var CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change';
 
-var plants = {};
+let plants = {};
 
 /**
  * Create a Plant.
@@ -14,7 +14,7 @@ var plants = {};
  */
 function create(displayName) {
   // Using the current timestamp + random number in place of a real id.
-  var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+  let id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
   plants[id] = {
     id: id,
     complete: false,
@@ -40,13 +40,13 @@ function destroy(id) {
   delete plants[id];
 }
 
-var GardenStore = assign({}, EventEmitter.prototype, {
+let GardenStore = assign({}, EventEmitter.prototype, {
   /**
    * Tests whether all the remaining Plants are marked as completed.
    * @return {boolean}
    */
   areAllComplete: function() {
-    for (var id in plants) {
+    for (let id in plants) {
       if (!plants[id].complete) {
         return false;
       }
@@ -83,7 +83,7 @@ var GardenStore = assign({}, EventEmitter.prototype, {
 
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
-  var displayName;
+  let displayName;
 
   switch(action.actionType) {
     case GardenConstants.PLANT_CREATE:
